@@ -1,4 +1,7 @@
 # Craig Kimball 12/5/2022
+# Mark Matta
+# Analuisa Lelis
+# Juliana Patrone
 
 
 gasPrices <- MonthlyGasPricesInMassachusetts$`Massachusetts All Grades All Formulations Retail Gasoline Prices Dollars per Gallon`
@@ -12,3 +15,8 @@ marginErrorGasPrices = gasPriceCritValue * gasPricesStdErr
 
 lowerBoundGasPrice = mean(gasPrices) - marginErrorGasPrices
 upperBoundGasPrice = mean(gasPrices) + marginErrorGasPrices
+
+# Regression Model of Gas Prices
+model <- lm(gasPrices~crudeOilPrices + massMinWage)
+pairs(~., data = MonthlyGasPricesInMassachusetts)
+
